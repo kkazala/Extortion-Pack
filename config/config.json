@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-security-web-parts": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/SPFxSecurity/SPFxSecurityWebPart.js",
+          "manifest": "./src/webparts/SPFxSecurity/SPFxSecurityWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/getTokens/GetTokensWebPart.js",
+          "manifest": "./src/webparts/getTokens/GetTokensWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SPFSecurityWebPartStrings": "lib/webparts/SPFxSecurity/loc/{locale}.js",
+    "GetTokensWebPartStrings": "lib/webparts/getTokens/loc/{locale}.js"
+  }
+}

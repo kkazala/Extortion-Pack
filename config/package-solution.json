@@ -1,0 +1,47 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-security",
+    "title": "SPFx as a spyware",
+    "id": "967664c2-7266-410a-9a71-2c023e8293db",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "Kinga Kazala",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.19.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Review your M365 data exfiltration and tenant takeover risk."
+      },
+      "longDescription": {
+        "default": "Even if you only approve delegated API permissions (SPFx solutions cannot request APp-only permissions anyway), you may be still exposed to data exfiltration and tenant takeover. All SPFx share the same API permissions, and all solutions that you installed in the past, or will install in the future, have access to the same user's data. This information may be leaked easily. Worst-case scenario? Under right circumstances, a malicious actor can take over your tenant."
+      },
+      "screenshotPaths": [
+        "assets/DataExfiltration1.png",
+        "assets/DataExfiltration2.png",
+        "assets/AccessTokens2.png",
+        "assets/AccessTokens3.png",
+        "assets/AccessTokens4.png"
+      ],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "SPFx as a spyware WebParts",
+        "description": "The feature that activates elements of the spfx-security solution.",
+        "id": "7e643d76-1fbd-47b9-80a0-651d734f39cb",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-security.sppkg"
+  }
+}
