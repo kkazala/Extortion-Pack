@@ -10,7 +10,7 @@ Let me explain.
 
 SPFx solutions, and any code running within you SPO all have access to all the SPO sites and resources on current user behalf. They also can access any external APIs. No additional permissions needed, no way to block it.
 
-And if the app requests permissions? "All permissions are granted to the whole tenant and not to a specific application that has requested them." See [Connect to Azure AD-secured APIs in SharePoint Framework solutions](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/use-aadhttpclient#:~:text=All%20permissions%20are%20granted%20to%20the%20whole%20tenant%20and%20not%20to%20a%20specific%20application%20that%20has%20requested%20them).
+And if the app requests permissions? _"All permissions are granted to the whole tenant and not to a specific application that has requested them."_ See [Connect to Azure AD-secured APIs in SharePoint Framework solutions](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/use-aadhttpclient#:~:text=All%20permissions%20are%20granted%20to%20the%20whole%20tenant%20and%20not%20to%20a%20specific%20application%20that%20has%20requested%20them).
 
 It means that any permissions requested by apps, once approved, are granted to the "**SharePoint Online Client Extensibility Web Application Principal**" (SPOCEWAP).
 
@@ -93,7 +93,7 @@ You may still install it in your development tenant, grant extra API permissions
 
 ### Data Exfiltration
 
-The "Data Exfiltration" WebPart calls https://httpbin.org/post endpoint to ensure that calling external endpoints is not blocked. You may also configure this Web Part and provide the URL and subscription key of your API Management service in Azure.
+The "Data Exfiltration" WebPart calls "https://httpbin.org/post" endpoint to ensure that calling external endpoints is not blocked. You may also configure this Web Part and provide the URL and subscription key of your API Management service in Azure.
 This will enable additional buttons in the SharePoint REST API tab, allowing you to send the contents of a selected site to that endpoint.
 
 The WebPart provides additional information explaining API access,
@@ -128,11 +128,11 @@ Use case 3: Access Azure resources
 
 ### Source code
 
-You can download both WebParts from my GitHub repo in the Releases section.
+You can download both WebParts from my [GitHub](https://github.com/kkazala/Extortion-Pack) repo, [Releases](https://github.com/kkazala/Extortion-Pack/releases) section.
 
 And… I hope this proposal gave you a pause. Is it safe? Do you even know me? Can you trust me?
 
-The source code is available, you may review it and build your own package by following these instructions: Prepare web part assets to deploy.
+The source code is available, you may review it and build your own package by following these instructions: [Prepare web part assets to deploy](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/web-parts/get-started/hosting-webpart-from-office-365-cdn#prepare-web-part-assets-to-deploy).
 
 **Choose your own adventure.**
 
@@ -191,4 +191,4 @@ The [Manage apps using the Apps site](https://learn.microsoft.com/en-us/sharepoi
 >
 > If you try to approve a permission request for a resource that already has some permissions granted (for example, granting additional permissions to the Microsoft Graph), the requested scopes are added to the previously granted permissions.
 
-**Finally! It is now clear that all SPFx extensions, along with any JavaScript client-side injected into the page or executed from the console share the same permissions. **
+**Finally! It is now clear that all SPFx extensions, along with any JavaScript client-side injected into the page or executed from the console share the same permissions.**
