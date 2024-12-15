@@ -96,9 +96,38 @@ You may still install it in your development tenant, grant extra API permissions
 The "Data Exfiltration" WebPart calls https://httpbin.org/post endpoint to ensure that calling external endpoints is not blocked. You may also configure this Web Part and provide the URL and subscription key of your API Management service in Azure.
 This will enable additional buttons in the SharePoint REST API tab, allowing you to send the contents of a selected site to that endpoint.
 
+The WebPart provides additional information explaining API access,
+
+![Data exfiltration Overview](./assets/DataExfiltration1.png)
+
+a summary of evaluated API permissions,
+![Summary of API access](./assets/DataExfiltration2.png)
+
+and allows you to send site contents to your APIM service in Azure. Use
+![Send site contents to APIM](./assets/DataExfiltration3.png)
+
 ### Get Access Tokens
 
-The "Get Access Tokens" WebPart does not allow sending information to an external APIs. It displays new access token generated for different scopes (https://graph.microsoft.com and https://management.azure.com), along with instructions on how to execute attacks.
+The "Get Access Tokens" WebPart does not allow sending information to an external APIs.
+
+It displays new access token generated for different scopes (https://graph.microsoft.com and https://management.azure.com), along with instructions on how to execute attacks.
+
+You may see your admin roles (if any) and check if conditions are met to execute different attacks
+![Admin roles](./assets/AccessTokens1_small.png)
+
+For each use case, you see whether required API permissions are granted in your tenant. Copy the Access Token and follow the instructions using PowerShell terminal on your own computer. This allows you to simulate attack, that would be executed remotely by a bad actor.
+
+Use case 1: tenant takeover
+![Use case 1](./assets/AccessTokens2.png)
+
+Use case 2: App registration with App-only API permissions
+![Use case 2](./assets/AccessTokens3.png)
+
+Use case 3: Access Azure resources
+![Use case 3](./assets/AccessTokens4_small.png)
+
+### Source code
+
 You can download both WebParts from my GitHub repo in the Releases section.
 
 And… I hope this proposal gave you a pause. Is it safe? Do you even know me? Can you trust me?
