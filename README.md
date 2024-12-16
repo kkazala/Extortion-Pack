@@ -2,7 +2,7 @@
 
 ## If your think that granting "delegated permissions only" makes your tenant secure, you are going to get hacked and it will be ALL YOUR FAULT
 
-It's unfortunately a common **misconseption** that granting "delegated permissions" is "safe" and therefore you don't have to worry about anything else.
+It's unfortunately a common **misconception** that granting "delegated permissions" is "safe" and therefore you don't have to worry about anything else.
 Way too often it ends the discussion, and the solution along with permissions it requests is approved immediately.
 
 If this is your case, I have bad news.
@@ -15,7 +15,7 @@ Malicious actors may use SPFx solutions to EASILY steal your data or replace lin
 
 Let me explain.
 
-SPFx solutions and **any code running within you SharePoint Online sites** have access to **all the SharePoint content on the current user's behalf** and can access **external APIs** to send this informations outside of your company.
+SPFx solutions and **any code running within you SharePoint Online sites** have access to **all the SharePoint content on the current user's behalf** and can access **external APIs** to send this information outside of your company.
 
 **No additional permissions needed, no way to block it**. This means that siphoning your company's data stored in SharePoint can only be avoided by not installing the malicious code.
 
@@ -132,7 +132,7 @@ Use case 3: Access Azure resources
 
 This solution does not request any API permissions, instead relying on those already granted. This is a type of an app you would install no questions asked, right?
 
-It's possible that not all actions may be executed. Perhaps the "Data exfiltration" WebPart won't be able to read your emails? Or maybe the "Get Access Token" will be useless because you were caucious when granting API permissions? I sure hope so.
+It's possible that not all actions may be executed. Perhaps the "Data exfiltration" WebPart won't be able to read your emails? Or maybe the "Get Access Token" will be useless because you were cautious when granting API permissions? I sure hope so.
 
 You may still install it in your development tenant, grant extra API permissions to the "**SharePoint Online Client Extensibility Web Application Principal**" and see what happens.
 
@@ -159,7 +159,7 @@ There's a common (and false) belief that permissions granted to a SPFx solution 
 
 In fact, API permissions are shared across all SPFx solutions that ever have, and will be, installed.
 
-It is a good practice to fail your code fracefully, should the required permissions be missing. But your solution doesn't have to request any permissions to be able to use them.
+It is a good practice to fail your code gracefully, should the required permissions be missing. But your solution doesn't have to request any permissions to be able to use them.
 
 ### "It's not so easy to steal a token"
 
@@ -177,9 +177,9 @@ On the other hand, the teams responsible for governance such as Global Administr
 
 This false sense of security and a belief that SPFx apps are secure by design may result in lack of scrutiny of SPFx extensions installed in the tenant. The threat seems to be **hiding in plain sight**.
 
-The UI of the "API access" site shows which extension requested which permissions, leading admins to believe they are granting permissions to this specific extension. I alredy heard that "we only need to find out which extension is granted which permissions".
+The UI of the "API access" site shows which extension requested which permissions, leading admins to believe they are granting permissions to this specific extension. I already heard that "we only need to find out which extension is granted which permissions".
 
-The offical documentation is also not very forthcoming.
+The official documentation is also not very forthcoming.
 The [Manage apps using the Apps site](https://learn.microsoft.com/en-us/sharepoint/use-app-catalog) linked from the "Manage apps" does not mention approving permissions at all. The [Manage access to Microsoft Entra ID-secured APIs](https://learn.microsoft.com/en-us/sharepoint/api-access) does, however, explain that:
 
 > Permissions of type delegated are added to the SharePoint Online Client Extensibility Web Application Principal in Microsoft Entra ID.
