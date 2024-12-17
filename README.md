@@ -180,9 +180,9 @@ It's two lines of code using MSAL library, and the token is valid 1 hour (90 min
 
 ```powershell
 public static async GetAccessToken_MSGraph(context: WebPartContext): Promise<string> {
-		const tokenProvider = await context.aadTokenProviderFactory.getTokenProvider();
-		return await tokenProvider.getToken("https://graph.microsoft.com");
-	}
+	const tokenProvider = await context.aadTokenProviderFactory.getTokenProvider();
+	return await tokenProvider.getToken("https://graph.microsoft.com");
+}
 ```
 
 ## The false sense of security
