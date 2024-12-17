@@ -126,7 +126,7 @@ The "Get Access Tokens" WebPart does not send any information to external APIs.
 It simply displays new access token generated for different scopes (https://graph.microsoft.com and https://management.azure.com), along with instructions on how to execute attacks.
 
 It displays some of your admin roles, if any, and checks if conditions are met to execute different attacks.
-![Admin roles](./assets/AccessTokens1_small.png)
+![Admin roles](./assets/AccessTokens1.png)
 
 For each use case, you see whether required API permissions are granted in your tenant. Copy the Access Token and follow the instructions using PowerShell terminal on your own computer. This allows you to simulate the attack that would be executed remotely by a hacker.
 
@@ -137,7 +137,7 @@ Use case 2: App registration with App-only API permissions
 ![Use case 2](./assets/AccessTokens3.png)
 
 Use case 3: Access Azure resources
-![Use case 3](./assets/AccessTokens4_small.png)
+![Use case 3](./assets/AccessTokens4.png)
 
 ### The "Extortion Pack" solution
 

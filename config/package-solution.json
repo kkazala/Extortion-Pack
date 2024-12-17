@@ -23,11 +23,11 @@
         "default": "Even if you only approve delegated API permissions (SPFx solutions cannot request APp-only permissions anyway), you may be still exposed to data exfiltration and tenant takeover. All SPFx share the same API permissions, and all solutions that you installed in the past, or will install in the future, have access to the same user's data. This information may be leaked easily. Worst-case scenario? Under right circumstances, a malicious actor can take over your tenant."
       },
       "screenshotPaths": [
-        "assets/DataExfiltration1.png",
-        "assets/DataExfiltration2.png",
-        "assets/AccessTokens2.png",
-        "assets/AccessTokens3.png",
-        "assets/AccessTokens4.png"
+        "assets/screenshotDataExfiltration1.png",
+        "assets/screenshotDataExfiltration2.png",
+        "assets/screenshotAccessTokens1.png",
+        "assets/screenshotAccessTokens2.png",
+        "assets/screenshotAccessTokens3.png"
       ],
       "videoUrl": "",
       "categories": []
