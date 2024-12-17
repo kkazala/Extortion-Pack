@@ -38,7 +38,7 @@ The code running within your SharePoint Online site is using [Access Tokens](htt
 
 The code may easily generate fresh Access Tokens and send them outside of your tenant to be used remotely.
 
-![attack 2](./assets/attack2.png)
+![attack 2](./assets/attack2.2.png)
 
 Bad actor only needs to:
 
@@ -71,7 +71,7 @@ If I was a hacker I would build a solution consisting of:
 Maybe you won't deploy my solution to the whole tenant. No problem.
 
 Once added to a page, the Web Part would associate the Application Customizer with all the sites you are an Owner of. The Application Customizer would then do the same for any other user accessing infected sites. It would spread like a virus.
-![associate](./assets/attack3.png)
+![associate](./assets/attack3.2.png)
 
 Soon all the SharePoint online sites in your environment will be infected.
 
