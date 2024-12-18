@@ -1,13 +1,13 @@
 # SharePoint Framework Extortion Pack
 
-## What does it take to steal your teanant? Not much. And your data? Even less.
+## What does it take to steal your tenant? Not much. And your data? Even less.
 
 It's unfortunately a common **misconception** that SharePoint extensions are "safe by design"
 and that granting "delegated permissions only" keeps your tenant secure. If this is your case, I wrote this **Extortion Pack** just for you!
 
 Delegated permissions don't make any solution "safe by design". If you thought they do, you are exposing your organization to significant security risks.
 
-Hackers may use SharePoint extensions to **EASILY steal your data**, or replace links with **spoofing URLs** without any additional permissions granted. They may also **exploit Access Tokens** to access your tenant remotely, to steal data without relying on users keeping the SharePoint page open, and **potentially take over the entire tenant**.
+Hackers may use SharePoint extensions to **EASILY steal your data**, or replace links with **spoofing URLs** without any additional permissions granted. They may also **use Access Tokens** to access your tenant remotely, to steal data without relying on users keeping the SharePoint page open, and **potentially take over the entire tenant**.
 
 If you are a SharePoint Admin, Global Admin, or even a Site Owner who's been trusted with a Site-level app catalog,
 you are the only person standing between your data and the hacker. You don't want to be the one who let them in.
@@ -16,7 +16,7 @@ you are the only person standing between your data and the hacker. You don't wan
 
 Let me explain.
 
-SPFx solutions and **any code running within you SharePoint Online sites** have access to **all the SharePoint content on the current user's behalf** and can access **external APIs** to send this information outside of your company.
+SharePoint extensions, and **any code running within you SharePoint Online sites** have access to **all the SharePoint content on the current user's behalf**, and can access **external APIs** to send this information outside of your company.
 
 **No additional permissions needed, no way to block it**.
 
