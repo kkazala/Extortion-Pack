@@ -3,16 +3,14 @@
 ## What does it take to steal your teanant? Not much. And your data? Even less.
 
 It's unfortunately a common **misconception** that SharePoint extensions are "safe by design"
-and that granting "delegated permissions only" keeps your tenant secure.
+and that granting "delegated permissions only" keeps your tenant secure. If this is your case, I wrote this **Extortion Pack** just for you!
 
-If this is your case, I wrote this **Extortion Pack** just for you! 😊
+Delegated permissions don't make any solution "safe by design". If you thought they do, you are exposing your organization to significant security risks.
+
+Hackers may use SharePoint extensions to **EASILY steal your data**, or replace links with **spoofing URLs** without any additional permissions granted. They may also **exploit Access Tokens** to access your tenant remotely, to steal data without relying on users keeping the SharePoint page open, and **potentially take over the entire tenant**.
 
 If you are a SharePoint Admin, Global Admin, or even a Site Owner who's been trusted with a Site-level app catalog,
 you are the only person standing between your data and the hacker. You don't want to be the one who let them in.
-
-SPFx solutions may only request delegated permissions but it doesn't make them "safe by design". If you thought it does, you are exposing your organization to significant security risks.
-
-Hckers may use SPFx solutions to **EASILY steal your data** or replace links with **spoofing URLs** without any additional permissions granted. They may also **exploit Access Tokens** to access your tenant remotely, to steal data without relying on users keeping the SharePoint page open, and **potentially take over the entire tenant**.
 
 ## Best case: your data gets stolen. Worst case: you lose your entire tenant.
 
@@ -24,21 +22,25 @@ SPFx solutions and **any code running within you SharePoint Online sites** have 
 
 Siphoning your company's data stored in SharePoint can only be avoided by not installing the malicious code.
 
-And if the app requests permissions? _"All permissions are granted to the whole tenant and not to a specific application that has requested them."_ See [Connect to Azure AD-secured APIs in SharePoint Framework solutions](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/use-aadhttpclient#:~:text=All%20permissions%20are%20granted%20to%20the%20whole%20tenant%20and%20not%20to%20a%20specific%20application%20that%20has%20requested%20them).
+And if the app requests permissions?
+
+> _"All permissions are granted to the whole tenant and not to a specific application that has requested them."_ **Not specific**. You read it right.
+>
+> [Connect to Azure AD-secured APIs in SharePoint Framework solutions](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/use-aadhttpclient#:~:text=All%20permissions%20are%20granted%20to%20the%20whole%20tenant%20and%20not%20to%20a%20specific%20application%20that%20has%20requested%20them).
 
 It means that any permissions requested by apps, once approved, are **granted not to the app that requested them**, but to **all the code** running in your SharePoint Online site: SharePoint Framework solutions, JavaScript code in script editor, or even JavaScript code executed in browser's console.
 
+And you grant these permissions on behalf of **every user** in your tenant. The code is acting on behalf of a current user: you, your colleagues, your CISO or CEO.
+
 ![attack 1](./assets/attack1.png)
 
-This means the code acting on behalf of a current user: you, your colleagues, your CISO or CEO.
+## But wait, it gets even worse
 
-## But wait, it gets worse
-
-The code running within your SharePoint Online site is using [Access Tokens](https://pnp.github.io/blog/post/introduction-to-tokens/) when accessing information. They are saved in your browser's local storage, and you can see them using the DevTools Application tab (F12 to open).
+The code running within your SharePoint Online site is using [Access Tokens](https://pnp.github.io/blog/post/introduction-to-tokens/) when accessing information. They are saved in your browser's local storage, and you can see them using the DevTools Application tab (use `F12` to open it).
 
 The code may easily generate fresh Access Tokens and send them outside of your tenant to be used remotely.
 
-![attack 2](./assets/attack2.2.png)
+![attack 2](./assets/attack2.png)
 
 Bad actor only needs to:
 
@@ -71,7 +73,8 @@ If I was a hacker I would build a solution consisting of:
 Maybe you won't deploy my solution to the whole tenant. No problem.
 
 Once added to a page, the Web Part would associate the Application Customizer with all the sites you are an Owner of. The Application Customizer would then do the same for any other user accessing infected sites. It would spread like a virus.
-![associate](./assets/attack3.2.png)
+
+![associate](./assets/attack3.png)
 
 Soon all the SharePoint online sites in your environment will be infected.
 
@@ -89,10 +92,14 @@ And if I saw you are a Global Admin and the `User.ReadWrite.All` plus `RoleManag
 
 ## Don't underestimate the severity of the problem.
 
-Your red lines should be:
+Your **red lines** should be:
 
--   granting API permissions that allow creating service principals and registrations or users and
--   accessing any SharePoint Online site using roles with elevated privileges
+-   granting API permissions that allow creating service principals and registrations or users:
+    -   `Application.ReadWrite.All`,
+    -   `AppRoleAssignment.ReadWrite.All`,
+    -   `User.ReadWrite.All`,
+    -   `RoleManagement.ReadWrite.Directory`
+-   accessing **any SharePoint Online site** using roles **with elevated privileges** (Global Admin, Application Admin, SharePoint Admin)
 
 Delegated permissions-only approach will not protect you. Only install solutions that you really need and that come from legitimate source. It means nothing, that a website looks good. It's a piece of cake to generate a perfect copy of existing site. Do you know the company? Is it really their own website? Is that MVP's domain name misspelled?
 
@@ -208,4 +215,4 @@ The [Manage apps using the Apps site](https://learn.microsoft.com/en-us/sharepoi
 
 I think we could all benefit from more direct explanations in the documentation, and maybe some warnings displayed in the Admin portal when approving API permissions.
 
-And in the meantime, let's spread the news. Pretending that all is great benefits only hackers.
+And in the meantime, let's spread the news. Pretending that "all is great" will benefit only hackers.
